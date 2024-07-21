@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+      }
+      .question {
+          margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Game</h1>
+    </header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a>/</a>
+      <a href="Portfolio.html">Portfolio</a>
+      <a>/</a>
+      <a href="Game.html">Game</a>
+    </nav>
+    <div class="container">
+      <div class="rightside">
+        <h3>Contact Me</h3>
+          <ul>
+            <li>Name:Kazuma Ikesawa</li>
+            <li>Email:is0543rv@ed.ritsumei.ac.jp</li>
+          </ul>
+          <label for="myTextArea">Message here:</label>
+          <textarea id="myTextArea" name="comment" rows="4" cols="50"></textarea>
+      </div>
+      <div class="main">
+        <h2>Quiz</h2>
+        <label for="username">Input your name:</label>
+        <input type="text" id="username" required>
+        <div id="quiz">
+          <div class="question">
+            <p>1.What is my favorite food?</p>
+            <input type="radio" name="q1" value="a">Sushi<br>
+            <input type="radio" name="q1" value="b">Ramen<br>
+            <input type="radio" name="q1" value="c">Karaage<br>
+            <input type="radio" name="q1" value="d">Gyoza<br>
+          </div>
+          <div class="question">
+            <p>2.What is the most favorite animal</p>
+            <input type="radio" name="q2" value="a">Horse<br>
+            <input type="radio" name="q2" value="b">Cat<br>
+            <input type="radio" name="q2" value="c">Giant Panda<br>
+            <input type="radio" name="q2" value="d">Whale<br>
+          </div>
+          <div class="question">
+            <p>3.Which country have I visited?</p>
+            <input type="radio" name="q3" value="a">Korea<br>
+            <input type="radio" name="q3" value="b">Singapore<br>
+            <input type="radio" name="q3" value="c">Shina<br>
+            <input type="radio" name="q3" value="d">Thailand<br>
+          </div>
+          <div class="question">
+            <p>4.Which J1 club am I spporter of?</p>
+            <input type="radio" name="q4" value="a">Urawa Reds<br>
+            <input type="radio" name="q4" value="b">Cerezo Osaka<br>
+            <input type="radio" name="q4" value="c">Yokohama F Marinos<br>
+            <input type="radio" name="q4" value="d">Sanfrecce Hiroshima<br>
+          </div>
+          <div class="question">
+            <p>5.Who is my favorite pro cyclist?</p>
+            <input type="radio" name="q5" value="a">Jonas VINGEGAARD<br>
+            <input type="radio" name="q5" value="b">Tadej Pogačar<br>
+            <input type="radio" name="q5" value="c">Mathieu van der Poel<br>
+            <input type="radio" name="q5" value="d">Giulio Ciccone<br>
+          </div>
+        </div>
+        <button onclick="Answer()">ANSWER</button>
+      </div>
+      <script>
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'c',
+            q3: 'b',
+            q4: 'a',
+            q5: 'd'
+        };
+
+        function Answer() {
+            const username = document.getElementById('username').value;
+            if (!username) {
+                alert('Input your name');
+                return;
+            }
+
+            let score = 0;
+            for (let i = 1; i <= 5; i++) {
+                const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (userAnswer && userAnswer.value === correctAnswers[`q${i}`]) {
+                    score += 20;
+                }
+            }
+
+            alert(`Hello,${username}!Your score is${score}`);
+        }
+      </script>
+      <div class="leftside">
+        <h3>Useful Links</h3>
+        <a href="https://codepen.io" target="_blank">Code pen</a>
+        <a href="https://github.com" target="_blank">github</a>
+        <a href="https://ct.ritsumei.ac.jp/ct/home">manaba+R</a>
+      </div>
+    </div>
+    <footer>
+        <p>18/07/2024</p>
+        <a href="https://www.instagram.com/yeah_9____llmnk/" style="color:lightblue" target="_blank">My instagram account</a>
+    </footer>
+   </body>
+</html>
